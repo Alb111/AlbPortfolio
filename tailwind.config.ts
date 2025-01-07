@@ -9,8 +9,11 @@ export default {
 	theme: {
 		extend: {
 			fontFamily: {
-				"fira" : ['Fira+Code']
-			}
+				"fira": ['Fira+Code']
+			},
+			colors: {
+				darkGray: 'rgb(38, 36, 36)', 
+			},
 		}
 	},
 
