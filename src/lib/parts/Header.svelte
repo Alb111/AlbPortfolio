@@ -31,12 +31,21 @@
 	</div>
 </div>
 
-
 <style>
 	.normal {
 		@apply px-3 text-2xl;
 	}
+
 	.underlined {
 		@apply px-3 text-2xl bg-gradient-to-r from-blue-500 to-green-500 bg-clip-text font-bold text-transparent;
+		transition: background-color 0.3s ease, transform 0.2s ease;
+	}
+
+	button {
+		transition: transform 0.2s ease;
+	}
+
+	button:hover {
+		transform: scale(1.1);
 	}
 </style>
