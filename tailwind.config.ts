@@ -13,6 +13,7 @@ export default {
 			},
 			colors: {
 				darkGray: 'rgb(38, 36, 36)', 
+				lightGray: 'rgb(70, 71, 70)' 
 			},
 		}
 	},
