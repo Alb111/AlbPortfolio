@@ -2,8 +2,12 @@
 	import Hero from "$lib/parts/Hero.svelte";
 	import Header from "$lib/parts/Header.svelte";
 	import WorkExp from "$lib/parts/WorkExperience.svelte";
+	import Education from "$lib/parts/Education.svelte";
 </script>
 
 <Header/>
 <Hero/>
+<div class="flex flex-col lg:flex-row">
 <WorkExp/>
+<Education/>
+</div>

@@ -9,8 +9,8 @@
 		},
 		{
 			title: 'Undergraduate Research Assistant',
-			company: 'Agents and Compositionality Group',
-			date: 'Dec 2023 - Aug 2024',
+			company: 'ConnectifyAI',
+			date: 'Dec 2024 - Aug 2025',
 			description:
 				' Led and contributed to the design of the front-end for a full-stack web application using Svelte-Kit, Tailwind, and Typescript, enabling researchers to better document and standardize multi-model AI architectures Also worked on methods to store and build upon these multi-model systems efficiently, fostering greater collaboration in research.'
 		}
