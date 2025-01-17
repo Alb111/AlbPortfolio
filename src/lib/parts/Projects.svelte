@@ -28,10 +28,11 @@
 </script>
 
 <!-- Slideshow container -->
-<div class="w-1/2 ">
+<div class="max-w-screen px-10">
+<div class="w-full">
 	{#each projects as project, index}
 		<div class={`mySlides fade ${index + 1 === slideIndex ? 'block' : 'hidden'}`}>
-			<div class="rounded-lg bg-lightGray p-6 shadow-md transition-all hover:shadow-xl">
+			<div class="rounded-lg bg-lightGray p-6 h-52">
 				<h3 class="bg-gradient-to-r from-blue-500 to-green-500 bg-clip-text text-xl font-bold text-transparent">
 					{project.projectName}
 				</h3>
@@ -58,6 +59,7 @@
 	>
 		→
 	</button>
+</div>
 </div>
 
 

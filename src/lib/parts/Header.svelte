@@ -5,10 +5,7 @@
 		x = y;
 	}
 </script>
-
-<div
-	class="sticky top-2 m-2 flex items-baseline justify-between rounded-xl bg-darkGray py-2 sm:py-5 outline"
->
+<div class="z-10 fixed top-2 w-full flex items-baseline justify-between rounded-xl bg-darkGray py-2 sm:py-5 outline">
 	<h1 class="ml-10 text-3xl">
 		Albert<span
 			class="bg-gradient-to-r from-blue-500 to-green-500 bg-clip-text text-4xl font-bold text-transparent"
@@ -30,6 +27,8 @@
 		<SideNav/>
 	</div>
 </div>
+
+<div class="w-full h-16"></div>
 
 <style>
 	.normal {

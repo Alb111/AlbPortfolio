@@ -19,7 +19,7 @@
 	<h2 class="mb-8 text-center text-3xl font-semibold">Education</h2>
 	<div class="space-y-8">
 		{#each education as edu}
-			<div class="rounded-lg bg-lightGray p-6 shadow-md transition-all hover:shadow-xl">
+			<div class="rounded-lg bg-lightGray p-6 ">
 				<h3
 					class="bg-gradient-to-r from-blue-500 to-green-500 bg-clip-text text-xl font-bold text-transparent"
 				>
