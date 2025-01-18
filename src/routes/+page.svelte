@@ -8,8 +8,4 @@
 
 <Header/>
 <Hero/>
-<div class="flex flex-col lg:flex-row">
 <WorkExp/>
-<Education/>
-</div>
-<Projects/>
