@@ -24,7 +24,8 @@
 				'• Lead front-end development to create a school mascot-themed AI assistant to help incoming college students better handle their daily schedules and responsibilities',
 				'• Effectively implemented OpenAI’s API and simple prompting to facilitate a welcoming tone of communication',
 				'• Devpost: https://devpost.com/software/slug-mommy'
-			]
+			],
+			img: ''
 		},
 		{
 			projectName: 'Stop it Game',
@@ -36,7 +37,8 @@
 				'• Developed a real-time timing game, Stop It, on an FPGA using Verilog, involving precise timing and control logic',
 				'• Implemented digital logic circuits to handle game state, timing, score, and user input for start/stop functionality on an LED display and a set of score LEDs',
 				'• Tested and debugged the system on FPGA hardware, ensuring reliable timing precision and responsive gameplay'
-			]
+			],
+			img: ''
 		},
 		{
 			projectName: 'CLI-based Hangman',
@@ -48,7 +50,8 @@
 				'• Developed a command-line interface (CLI) based Hangman game with ASCII art, providing a visually engaging user experience',
 				'• Implemented game logic for word selection, tracking player guesses, and managing game states such as wins/losses',
 				'• Created a robust input validation system to handle incorrect guesses and provide real-time feedback'
-			]
+			],
+			img: ''
 		}
 	];
 
@@ -67,46 +70,54 @@
 	}
 </script>
 
-<div class="h-1/2 w-full">
-	<div class="w-1/2 h-full flex items-center">
+<main class="h-3/4">
+	<h1 class="text-4xl font-bold">Projects</h1>
+	<div class="flex h-1/2 w-full items-center justify-center px-10">
 		{#each projects as project, index}
-			<div class={`mySlides fade ${index + 1 === slideIndex ? 'block' : 'hidden'}`}>
-				<div class="rounded-lg bg-lightGray p-6">
-					<h3
-						class="bg-gradient-to-r from-blue-500 to-green-500 bg-clip-text text-xl font-bold text-transparent"
+			<div class={`mySlides fade ${index + 1 === slideIndex ? 'block' : 'hidden'} flex`}>
+				<div class="w-1/2 rounded-lg bg-lightGray p-6">
+					<h1
+						class="bg-gradient-to-r from-blue-500 to-green-500 bg-clip-text text-2xl font-bold text-transparent"
 					>
 						{project.projectName}
-					</h3>
-					<p class="text-md mt-2">
-						<a href={project.githubUrl} target="_blank" class="text-blue-500 hover:underline">
-							GitHub Link
-						</a>
-					</p>
+					</h1>
+					<div class="text-md mt-2">
+						{#if project.opensource}
+							<a href={project.githubUrl} target="_blank" class="text-blue-500 hover:underline">
+								GitHub Link
+							</a>
+						{/if}
+						{#if !project.opensource}
+							<h1 class="text-blue-500 hover:underline">
+								Source Code can be shown on request currently private for academic purposes
+							</h1>
+						{/if}
+					</div>
 					{#each project.description as bulletpoint}
 						<p class="mt-3 text-white">{bulletpoint}</p>
 					{/each}
+				</div>
+				<div class="mx-5 flex w-1/2 justify-center rounded-lg bg-lightGray">
+					<img src={project.img} alt="not found" />
 				</div>
 			</div>
 		{/each}
 	</div>
 
-
-
-</div>
-
 	<!-- Next & previous buttons -->
-		<button
-			class=" rounded-r bg-black bg-opacity-50 px-4 py-2 text-lg font-bold text-white hover:bg-opacity-70"
-			on:click={() => plusSlides(-1)}
-		>
-			←
-		</button>
-		<button
-			class="rounded-l bg-black bg-opacity-50 px-4 py-2 text-lg font-bold text-white hover:bg-opacity-70"
-			on:click={() => plusSlides(1)}
-		>
-			→
-		</button>
+	<button
+		class=" rounded-r bg-lightGray px-4 py-2 text-lg font-bold text-white hover:bg-gradient-to-r from-blue-500 to-green-500"
+		on:click={() => plusSlides(-1)}
+	>
+		←
+	</button>
+	<button
+		class="rounded-l bg-lightGray px-4 py-2 text-lg font-bold text-white hover:bg-gradient-to-r from-blue-500 to-green-500"
+		on:click={() => plusSlides(1)}
+	>
+		→
+	</button>
+</main>
 
 <style>
 	/* Fading animation for the slides */
