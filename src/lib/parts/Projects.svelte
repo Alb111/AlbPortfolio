@@ -71,7 +71,7 @@
 </script>
 
 <main class="h-3/4">
-	<h1 class="text-4xl font-bold">Projects</h1>
+	<h1 class="text-4xl font-bold py-10">Projects</h1>
 	<div class="flex h-1/2 w-full items-center justify-center px-10">
 		{#each projects as project, index}
 			<div class={`mySlides fade ${index + 1 === slideIndex ? 'block' : 'hidden'} flex`}>

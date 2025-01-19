@@ -42,7 +42,7 @@
 	];
 </script>
 
-<main class="flex w-full h-full items-center">
+<main class="flex w-full h-3/4 items-center">
 	<!-- SelectorPart -->
 	<div class="h-full w-1/2 flex flex-col items-center justify-center space-y-4 px-10">
 		<h1 class="text-4xl font-bold">Why me?</h1>

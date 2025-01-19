@@ -8,6 +8,9 @@
 
 <Header/>
 <Hero/>
+<div class="h-20"> </div>
 <WorkExp/>
+<div class="h-20"> </div>
 <Projects/>
+<div class="h-15"> </div>
 <Contant/>
