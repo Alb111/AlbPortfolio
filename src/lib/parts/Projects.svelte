@@ -71,7 +71,7 @@
 </script>
 
 <main class="h-3/4">
-	<h1 class="text-4xl font-bold py-10">Projects</h1>
+	<h1 class="py-10 text-4xl font-bold">Projects</h1>
 	<div class="flex h-1/2 w-full items-center justify-center px-10">
 		{#each projects as project, index}
 			<div class={`mySlides fade ${index + 1 === slideIndex ? 'block' : 'hidden'} flex`}>
@@ -105,18 +105,20 @@
 	</div>
 
 	<!-- Next & previous buttons -->
-	<button
-		class=" rounded-r bg-lightGray px-4 py-2 text-lg font-bold text-white hover:bg-gradient-to-r from-blue-500 to-green-500"
-		on:click={() => plusSlides(-1)}
-	>
-		←
-	</button>
-	<button
-		class="rounded-l bg-lightGray px-4 py-2 text-lg font-bold text-white hover:bg-gradient-to-r from-blue-500 to-green-500"
-		on:click={() => plusSlides(1)}
-	>
-		→
-	</button>
+	<div class="py-5 w-full flex justify-evenly">
+		<button
+			class=" rounded-r bg-lightGray from-blue-500 to-green-500 px-4 py-2 text-lg font-bold text-white hover:bg-gradient-to-r"
+			on:click={() => plusSlides(-1)}
+		>
+			←
+		</button>
+		<button
+			class="rounded-l bg-lightGray from-blue-500 to-green-500 px-4 py-2 text-lg font-bold text-white hover:bg-gradient-to-r"
+			on:click={() => plusSlides(1)}
+		>
+			→
+		</button>
+	</div>
 </main>
 
 <style>

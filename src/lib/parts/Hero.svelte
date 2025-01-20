@@ -5,41 +5,47 @@
 
 <section class="flex w-full flex-col md:flex-row">
 	<div class="flex w-full flex-col items-center justify-center p-10 md:w-1/2">
-		<h1 class="text-4xl font-bold md:text-7xl animate-fade-in">Hello, Im</h1>
+		<h1 class="animate-fade-in text-4xl font-bold md:text-7xl">Hello, Im</h1>
 		<Typewriter cursor={false} interval={50} mode="cascade">
 			<h1
-				class="bg-gradient-to-r from-blue-500 to-green-500 bg-clip-text text-4xl font-bold text-transparent md:text-7xl animate-slide-up"
+				class="animate-slide-up bg-gradient-to-r from-blue-500 to-green-500 bg-clip-text text-4xl font-bold text-transparent md:text-7xl"
 			>
 				Albert Felix
 			</h1>
 		</Typewriter>
-		<p class="py-10 text-center text-sm md:text-xl animate-fade-in">
+		<p class="animate-fade-in py-10 text-center text-sm md:text-xl">
 			I am an aspiring hardware engineer, with interests in ASIC design, AI, FPGAs, and Digital
 			System Design. I also enjoy learning about low-level software development and computer
 			architecture.
 		</p>
 		<div class="flex space-x-4">
 			<!-- Download CV Button -->
-			<button
-				class="border-gradient-to-r flex rounded-full border-2 from-blue-500 to-green-500 px-5 py-2 text-xl text-white transition duration-300 hover:bg-gradient-to-l animate-scale-up"
-			>
-				Download CV
-			</button>
+			<a href="/resume/Albert_s_Resume.pdf" download="Albert_Resume.pdf">
+				<button
+					class="border-gradient-to-r animate-scale-up flex rounded-full border-2 from-blue-500 to-green-500 px-5 py-2 text-xl text-white transition duration-300 hover:bg-gradient-to-l"
+				>
+					Download CV
+				</button>
+			</a>
 			<!-- Socail Media Links -->
-			<button
-				class="border-gradient-to-r rounded-full border-2 from-blue-500 to-green-500 px-5 py-2 text-xl text-white transition duration-300 hover:bg-gradient-to-l animate-scale-up"
-			>
-				<Linkedin />
-			</button>
-			<button
-				class="border-gradient-to-r rounded-full border-2 from-blue-500 to-green-500 px-5 py-2 text-xl text-white transition duration-300 hover:bg-gradient-to-l animate-scale-up"
-			>
-				<GithubIcon />
-			</button>
+			<a href="https://www.linkedin.com/in/albert-felix/" target="_blank">
+				<button
+					class="border-gradient-to-r animate-scale-up rounded-full border-2 from-blue-500 to-green-500 px-5 py-2 text-xl text-white transition duration-300 hover:bg-gradient-to-l"
+				>
+					<Linkedin />
+				</button>
+			</a>
+			<a href="https://github.com/Alb111" target="_blank">
+				<button
+					class="border-gradient-to-r animate-scale-up rounded-full border-2 from-blue-500 to-green-500 px-5 py-2 text-xl text-white transition duration-300 hover:bg-gradient-to-l"
+				>
+					<GithubIcon />
+				</button>
+			</a>
 		</div>
 	</div>
-	<div class="flex w-full h-full justify-center p-10 md:w-1/2 animate-slide-up">
-		<img class="rounded-xl" src="image.png" alt="akdjfalkdsjf;lk" />
+	<div class="animate-slide-up flex h-full w-full justify-center p-10 md:w-1/2">
+		<img class="rounded-xl" src="/images/image.png" alt="akdjfalkdsjf;lk" />
 	</div>
 </section>
 
