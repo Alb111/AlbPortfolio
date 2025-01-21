@@ -10,3 +10,4 @@
 - [ ] put on vercel
 - [ ] add images
 - [x] add skills
+- [ ] add the changes that the person on disc suggessted
