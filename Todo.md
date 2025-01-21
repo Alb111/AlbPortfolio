@@ -5,8 +5,8 @@
 - [x] add resume download and other links
 - [x] make google form for contact: https://www.youtube.com/watch?v=4XCGuchFiac
 - [x] make nav scroll links work
-- [ ] make nav scroll links work for mobile
-- [ ] do moble scalling
+- [x] make nav scroll links work for mobile
+- [x] do moble scalling
 - [ ] put on vercel
 - [ ] add images
 - [x] add skills

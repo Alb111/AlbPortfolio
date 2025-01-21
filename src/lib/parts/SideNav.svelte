@@ -1,8 +1,18 @@
 <script lang="ts">
+	export let sections: {
+		home: HTMLElement;
+		experience: HTMLElement;
+		projects: HTMLElement;
+		contact: HTMLElement;
+	};
+
 	import { Menu, CircleX } from 'lucide-svelte';
+
 	let x: number = 0;
-	function underline(y: number) {
+	function underline(y: number, toMove: HTMLElement) {
 		x = y;
+		scrollToSection(toMove);
+		closeNav();
 	}
 	// Set the width of the side navigation to 250px
 	function openNav() {
@@ -12,6 +22,16 @@
 	// Set the width of the side navigation to 0
 	function closeNav() {
 		document.getElementById('mySidenav').classList.remove('w-64');
+	}
+
+	function scrollToSection(section: HTMLElement) {
+		if (section) {
+			section.scrollIntoView({
+				behavior: 'smooth',
+				block: 'start',
+				inline: 'nearest'
+			});
+		}
 	}
 </script>
 
@@ -23,11 +43,19 @@
 		<CircleX />
 	</button>
 
-	<button class={x == 0 ? 'underlined' : 'normal'} on:click={() => underline(0)}>Home</button>
-	<button class={x == 1 ? 'underlined' : 'normal'} on:click={() => underline(1)}>Experience</button>
-	<button class={x == 2 ? 'underlined' : 'normal'} on:click={() => underline(2)}>Projects</button>
-	<button class={x == 3 ? 'underlined' : 'normal'} on:click={() => underline(3)}>Resume</button>
-	<button class={x == 4 ? 'underlined' : 'normal'} on:click={() => underline(4)}>Contact</button>
+	<button class={x == 0 ? 'underlined' : 'normal'} on:click={() => underline(0, sections.home)}
+		>Home</button
+	>
+	<button
+		class={x == 1 ? 'underlined' : 'normal'}
+		on:click={() => underline(1, sections.experience)}>Experience</button
+	>
+	<button class={x == 2 ? 'underlined' : 'normal'} on:click={() => underline(2, sections.projects)}
+		>Projects</button
+	>
+	<button class={x == 4 ? 'underlined' : 'normal'} on:click={() => underline(3, sections.contact)}
+		>Contact</button
+	>
 </div>
 
 <!-- Use any element to open the sidenav -->

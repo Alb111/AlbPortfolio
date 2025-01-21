@@ -11,7 +11,7 @@
 	let x: number = 0;
 	function underlineAndScroll(y: number, too: HTMLElement) {
 		x = y;
-		scrollToSection(too)
+		scrollToSection(too);
 	}
 </script>
 
@@ -27,17 +27,34 @@
 
 	<!-- Main Navigation (visible on larger screens) -->
 	<nav class="mr-10 hidden sm:flex">
-		<button class={x == 0 ? 'underlined' : 'normal'} on:click={() => underlineAndScroll(0, sections.home) }>Home</button>
-		<button class={x == 1 ? 'underlined' : 'normal'} on:click={() => underlineAndScroll(1, sections.experience)}
-			>Experience</button
+		<button
+			class={x == 0 ? 'underlined' : 'normal'}
+			on:click={() => underlineAndScroll(0, sections.home)}>Home</button
 		>
-		<button class={x == 2 ? 'underlined' : 'normal'} on:click={() => underlineAndScroll(2, sections.projects)}>Projects</button>
-		<button class={x == 3 ? 'underlined' : 'normal'} on:click={() => underlineAndScroll(3, sections.contact)}>Contact</button>
+		<button
+			class={x == 1 ? 'underlined' : 'normal'}
+			on:click={() => underlineAndScroll(1, sections.experience)}>Experience</button
+		>
+		<button
+			class={x == 2 ? 'underlined' : 'normal'}
+			on:click={() => underlineAndScroll(2, sections.projects)}>Projects</button
+		>
+		<button
+			class={x == 3 ? 'underlined' : 'normal'}
+			on:click={() => underlineAndScroll(3, sections.contact)}>Contact</button
+		>
 	</nav>
 
 	<!-- Side Navigation (visible on small screens) -->
 	<div class="sm:hidden">
-		<SideNav />
+		<SideNav
+			sections={{
+				home: sections.home,
+				experience: sections.experience,
+				projects: sections.projects,
+				contact: sections.contact 
+			}}
+		/>
 	</div>
 </div>
 
