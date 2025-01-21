@@ -75,9 +75,9 @@
 	<div class="flex h-1/2 w-full items-center justify-center px-10">
 		{#each projects as project, index}
 			<div
-				class={`mySlides fade ${index + 1 === slideIndex ? 'block' : 'hidden'} flex sm:flex-col`}
+				class={`mySlides fade ${index + 1 === slideIndex ? 'block' : 'hidden'} flex sm:flex-row`}
 			>
-				<div class="w-1/2 rounded-lg bg-lightGray p-6">
+				<div class="w-full rounded-lg bg-lightGray p-6 sm:w-1/2">
 					<h1
 						class="bg-gradient-to-r from-blue-500 to-green-500 bg-clip-text text-2xl font-bold text-transparent"
 					>
@@ -100,9 +100,9 @@
 					{/each}
 				</div>
 
-				<div class="mx-5 flex w-1/2 justify-center rounded-lg bg-lightGray">
+				<div class="mx-5 hidden w-1/2 justify-center rounded-lg bg-lightGray sm:flex ">
 					<!-- <img src={project.img} alt="not found" /> -->
-					<h1>Images and Videos and on the way</h1>
+					<h1>Images and Videos are on the way</h1>
 				</div>
 			</div>
 		{/each}
