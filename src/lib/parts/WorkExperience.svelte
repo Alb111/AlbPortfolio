@@ -7,6 +7,25 @@
 		currentHover = x;
 	}
 
+	const skills = [
+		{
+			category: 'Languages',
+			items: ['Java', 'Python', 'C/C++', 'JavaScript', 'HTML/CSS', 'Verilog', 'Bash']
+		},
+		{
+			category: 'Frameworks',
+			items: ['Node.js', 'Svelte-Kit', 'PyTorch (learning)']
+		},
+		{
+			category: 'Developer Tools',
+			items: ['Git', 'VS Code', 'Vim-motions', 'Linux']
+		},
+		{
+			category: 'Libraries',
+			items: ['pandas (learning)', 'NumPy (learning)']
+		}
+	];
+
 	let education = [
 		{
 			school: 'UC Santa Cruz',
@@ -42,20 +61,29 @@
 	];
 </script>
 
-<main class="flex w-full h-3/4 items-center">
+<main class="flex h-3/4 w-full flex-col items-center sm:flex-row">
 	<!-- SelectorPart -->
-	<div class="h-full w-1/2 flex flex-col items-center justify-center space-y-4 px-10">
+	<div class="flex h-full w-full flex-col items-center justify-center space-y-4 px-10 sm:w-1/2">
 		<h1 class="text-4xl font-bold">Why me?</h1>
-		<h2 class=""> Use the selector to navigate my credentials and experience.</h2>
-		<button class={currentHover == 'experience' ? 'underlined' : 'normal'} on:click={() => changeHover('experience')}>Experience</button>
-		<button class={currentHover == 'education' ? 'underlined' : 'normal'} on:click={() => changeHover('education')}>Education</button>
-		<button class={currentHover == 'skills' ? 'underlined' : 'normal'} on:click={() => changeHover('skills')}>Skills</button>
+		<h2 class="">Use the selector to navigate my credentials and experience.</h2>
+		<button
+			class={currentHover == 'experience' ? 'underlined' : 'normal'}
+			on:click={() => changeHover('experience')}>Experience</button
+		>
+		<button
+			class={currentHover == 'education' ? 'underlined' : 'normal'}
+			on:click={() => changeHover('education')}>Education</button
+		>
+		<button
+			class={currentHover == 'skills' ? 'underlined' : 'normal'}
+			on:click={() => changeHover('skills')}>Skills</button
+		>
 	</div>
 
 	<!-- Conditional Display -->
 	{#if currentHover === 'experience'}
 		<!-- WorkExp Part -->
-		<div class="mx-auto w-1/2 px-10 py-12">
+		<div class="mx-auto w-full px-10 py-12 sm:w-1/2">
 			<div class="space-y-8">
 				{#each experiences as experience}
 					<div class="rounded-lg bg-lightGray p-6">
@@ -75,7 +103,7 @@
 
 	{#if currentHover === 'education'}
 		<!-- EducationPart -->
-		<div class="mx-auto w-1/2 px-6 py-12">
+		<div class="mx-auto w-full px-10 py-12 sm:w-1/2">
 			<div class="space-y-8">
 				{#each education as edu}
 					<div class="rounded-lg bg-lightGray p-6">
@@ -95,21 +123,37 @@
 
 	{#if currentHover === 'skills'}
 		<!-- Skills Placeholder -->
-		<div class="mx-auto w-1/2 px-6 py-12">
-			<h2 class="mb-8 text-center text-3xl font-semibold">Skills</h2>
-			<p class="text-center">Coming soon...</p>
+		<div class="mx-auto w-full px-10 py-12 sm:w-1/2">
+			<div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+				{#each skills as { category, items }}
+					<div class="rounded-lg bg-lightGray p-4 shadow-lg">
+						<div
+							class="mb-2 bg-gradient-to-r from-blue-500 to-green-500 bg-clip-text text-xl font-semibold text-transparent"
+						>
+							{category}
+						</div>
+						<ul class="list-inside list-disc space-y-1 pl-5">
+							{#each items as item}
+								<li class="text-white">{item}</li>
+							{/each}
+						</ul>
+					</div>
+				{/each}
+			</div>
 		</div>
 	{/if}
 </main>
 
 <style>
 	.normal {
-		@apply py-3 text-2xl w-full  rounded-lg bg-lightGray ;
+		@apply w-full rounded-lg bg-lightGray py-3 text-2xl;
 	}
 
 	.underlined {
-		@apply py-3 text-2xl bg-gradient-to-r from-blue-500 to-green-500 w-full rounded-lg;
-		transition: background-color 0.3s ease, transform 0.2s ease;
+		@apply w-full rounded-lg bg-gradient-to-r from-blue-500 to-green-500 py-3 text-2xl;
+		transition:
+			background-color 0.3s ease,
+			transform 0.2s ease;
 	}
 
 	button {
@@ -120,4 +164,3 @@
 		transform: scale(1.05);
 	}
 </style>
-

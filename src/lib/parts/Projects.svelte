@@ -74,7 +74,9 @@
 	<h1 class="py-10 text-4xl font-bold">Projects</h1>
 	<div class="flex h-1/2 w-full items-center justify-center px-10">
 		{#each projects as project, index}
-			<div class={`mySlides fade ${index + 1 === slideIndex ? 'block' : 'hidden'} flex`}>
+			<div
+				class={`mySlides fade ${index + 1 === slideIndex ? 'block' : 'hidden'} flex sm:flex-col`}
+			>
 				<div class="w-1/2 rounded-lg bg-lightGray p-6">
 					<h1
 						class="bg-gradient-to-r from-blue-500 to-green-500 bg-clip-text text-2xl font-bold text-transparent"
@@ -97,15 +99,17 @@
 						<p class="mt-3 text-white">{bulletpoint}</p>
 					{/each}
 				</div>
+
 				<div class="mx-5 flex w-1/2 justify-center rounded-lg bg-lightGray">
-					<img src={project.img} alt="not found" />
+					<!-- <img src={project.img} alt="not found" /> -->
+					<h1>Images and Videos and on the way</h1>
 				</div>
 			</div>
 		{/each}
 	</div>
 
 	<!-- Next & previous buttons -->
-	<div class="py-5 w-full flex justify-evenly">
+	<div class="flex w-full justify-evenly py-5">
 		<button
 			class=" rounded-r bg-lightGray from-blue-500 to-green-500 px-4 py-2 text-lg font-bold text-white hover:bg-gradient-to-r"
 			on:click={() => plusSlides(-1)}

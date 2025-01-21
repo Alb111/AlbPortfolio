@@ -9,4 +9,4 @@
 - [ ] do moble scalling
 - [ ] put on vercel
 - [ ] add images
-- [ ] add skills
+- [x] add skills
