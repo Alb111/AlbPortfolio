@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Wave from './Wave.svelte';
 	import Typewriter from 'svelte-typewriter';
 	import { Linkedin, GithubIcon } from 'lucide-svelte';
 </script>
@@ -14,15 +15,14 @@
 			</h1>
 		</Typewriter>
 		<p class="animate-fade-in py-10 text-center text-sm md:text-xl">
-			I am hardware engineer, with interests in ASIC design, AI, FPGAs, and Digital
-			System Design. I also enjoy learning about low-level software development and computer
-			architecture.
+			I am hardware engineer, with interests in ASIC design, AI, FPGAs, and Digital System Design. I
+			also enjoy learning about low-level software development and computer architecture.
 		</p>
 		<div class="flex space-x-4">
 			<!-- Download CV Button -->
 			<a href="/resume/Albert_s_Resume.pdf" download="Albert_Resume.pdf">
 				<button
-					class="border-gradient-to-r animate-scale-up flex rounded-full border-2 from-blue-500 to-green-500 px-5 py-2 text-xl text-white transition duration-300 hover:bg-gradient-to-l"
+					class="rounded-full border-2 border-green-500 px-5 py-2 text-xl text-green-500 transition duration-300 hover:border-blue-500 hover:text-blue-500"
 				>
 					Download CV
 				</button>
@@ -30,21 +30,22 @@
 			<!-- Socail Media Links -->
 			<a href="https://www.linkedin.com/in/albert-felix/" target="_blank">
 				<button
-					class="border-gradient-to-r animate-scale-up rounded-full border-2 from-blue-500 to-green-500 px-5 py-2 text-xl text-white transition duration-300 hover:bg-gradient-to-l"
+					class="rounded-full border-2 border-green-500 px-5 py-2 text-xl text-green-500 transition duration-300 hover:border-blue-500 hover:text-blue-500"
 				>
 					<Linkedin />
 				</button>
 			</a>
 			<a href="https://github.com/Alb111" target="_blank">
 				<button
-					class="border-gradient-to-r animate-scale-up rounded-full border-2 from-blue-500 to-green-500 px-5 py-2 text-xl text-white transition duration-300 hover:bg-gradient-to-l"
+					class="rounded-full border-2 border-green-500 px-5 py-2 text-xl text-green-500 transition duration-300 hover:border-blue-500 hover:text-blue-500"
 				>
 					<GithubIcon />
 				</button>
 			</a>
 		</div>
+		<Wave/>
 	</div>
-	<div class="animate-slide-up flex h-full w-full justify-center p-10 md:w-1/2">
+	<div class="animate-slide-up flex h-screen w-full justify-center md:w-1/2">
 		<img class="rounded-xl" src="/images/image.png" alt="akdjfalkdsjf;lk" />
 	</div>
 </section>

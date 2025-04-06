@@ -1,142 +1,152 @@
 <script>
-	let slideIndex = 1;
+	import Wave from './Wave.svelte';
+	import ProjectCard from './ProjectCard.svelte';
 	let projects = [
 		{
 			projectName: 'Pomato',
+			type: 'software',
 			opensource: true,
 			githubUrl: 'https://github.com/Alb111/Pomato_V1',
 			skills: ['Svelte Kit', 'Supabase', 'Tailwind-CSS', 'Typescript', 'Skeleton UI'],
 			date: 'dec 2024',
 			description: [
-				'• Developing a full-stack web application using Supabase and Svelte-Kit to help users implement the Pomodoro technique for more efficient task completion',
-				'• Implementing OAuth to securely store user study sessions and track progress',
-				'• Creating features to display past user data, study sessions, and completed tasks, providing progress tracking and motivation'
+				'Developing a full-stack web application using Supabase and Svelte-Kit to help users implement the Pomodoro technique for more efficient task completion',
+				'Implementing OAuth to securely store user study sessions and track progress',
+				'Creating features to display past user data, study sessions, and completed tasks, providing progress tracking and motivation'
 			],
 			img: ''
 		},
 		{
 			projectName: 'Slug Assistant *Cruz Hacks Winner*',
+			type: 'software',
 			opensource: true,
 			githubUrl: 'https://github.com/Sluggish-Solutions/Slug-Mommy',
 			skills: ['Svelte Kit', 'Supabase', 'Tailwind-CSS', 'Typescript', 'Skeleton UI'],
 			date: 'feb 2024',
 			description: [
-				'• Lead front-end development to create a school mascot-themed AI assistant to help incoming college students better handle their daily schedules and responsibilities',
-				'• Effectively implemented OpenAI’s API and simple prompting to facilitate a welcoming tone of communication',
-				'• Devpost: https://devpost.com/software/slug-mommy'
+				'Lead front-end development to create a school mascot-themed AI assistant to help incoming college students better handle their daily schedules and responsibilities',
+				'Effectively implemented OpenAI’s API and simple prompting to facilitate a welcoming tone of communication',
+				'Devpost: https://devpost.com/software/slug-mommy'
 			],
 			img: ''
 		},
 		{
 			projectName: 'Stop it Game',
+			type: 'hardware',
 			opensource: false,
 			githubUrl: 'Can be shown on request currently private for academic purposes.',
 			skills: ['Verilog', 'FPGA', 'Verible', 'Vivado'],
 			date: 'July 2024',
 			description: [
-				'• Developed a real-time timing game, Stop It, on an FPGA using Verilog, involving precise timing and control logic',
-				'• Implemented digital logic circuits to handle game state, timing, score, and user input for start/stop functionality on an LED display and a set of score LEDs',
-				'• Tested and debugged the system on FPGA hardware, ensuring reliable timing precision and responsive gameplay'
+				'Developed a real-time timing game, Stop It, on an FPGA using Verilog, involving precise timing and control logic',
+				'Implemented digital logic circuits to handle game state, timing, score, and user input for start/stop functionality on an LED display and a set of score LEDs',
+				'Tested and debugged the system on FPGA hardware, ensuring reliable timing precision and responsive gameplay'
 			],
 			img: ''
 		},
 		{
 			projectName: 'CLI-based Hangman',
+			type: 'software',
 			opensource: false,
 			skills: ['C', 'Make'],
 			githubUrl: 'Can be shown on request currently private for academic purposes.',
 			date: 'Mar 2024',
 			description: [
-				'• Developed a command-line interface (CLI) based Hangman game with ASCII art, providing a visually engaging user experience',
-				'• Implemented game logic for word selection, tracking player guesses, and managing game states such as wins/losses',
-				'• Created a robust input validation system to handle incorrect guesses and provide real-time feedback'
+				'Developed a command-line interface (CLI) based Hangman game with ASCII art, providing a visually engaging user experience',
+				'Implemented game logic for word selection, tracking player guesses, and managing game states such as wins/losses',
+				'Created a robust input validation system to handle incorrect guesses and provide real-time feedback'
+			],
+			img: ''
+		},
+		{
+			projectName: 'Dino Run Game (Offline Chrome Clone)',
+			type: 'hardware',
+			opensource: false,
+			skills: ['Verilog', 'FPGA', 'Verible', 'Vivado'],
+			githubUrl: 'Can be shown on request — currently private for academic purposes.',
+			date: 'July 2024',
+			description: [
+				'Designed and implemented a hardware-based side-scrolling runner game inspired by Chrome’s offline Dino Run using Verilog on an FPGA',
+				'Built real-time game logic including obstacle generation, collision detection, jump mechanics, and scoring on a VGA display',
+				'Integrated user input, sprite animation, and frame-based timing to simulate smooth gameplay on FPGA hardware'
+			],
+			img: ''
+		},
+		{
+			projectName: 'MNIST on FPGA',
+			type: 'hardware',
+			opensource: false,
+			skills: ['Python', 'NumPy', 'Verilog', 'FPGA', 'Vivado'],
+			githubUrl: 'Can be shown on request — currently private for academic purposes.',
+			date: 'Apr 2025',
+			description: [
+				'Trained a 2-layer neural network in Python using NumPy to classify handwritten digits from the MNIST dataset',
+				'Exported trained weights to be used in a hardware implementation on an FPGA',
+				'Currently developing matrix multiplication and inference logic in Verilog to perform digit classification in hardware'
 			],
 			img: ''
 		}
 	];
 
-	/**
-	 * @param {number} n
-	 */
-	function plusSlides(n) {
-		slideIndex = ((slideIndex + n - 1 + projects.length) % projects.length) + 1;
+	let categoryFilter = 'all'; // Default filter (all items)
+	let filteredItems = projects;
+	// Filter items based on the selected category filter
+	function filterHardware() {
+		categoryFilter = 'hardware';
+	}
+	function filterSoftware() {
+		categoryFilter = 'software';
+	}
+	function filterAll() {
+		categoryFilter = 'all';
 	}
 
-	/**
-	 * @param {number} n
-	 */
-	function currentSlide(n) {
-		slideIndex = n;
-	}
+	$: filteredItems = projects.filter((item) => {
+		return categoryFilter === 'all' || item.type === categoryFilter;
+	});
 </script>
 
-<main class="h-3/4">
-	<h1 class="py-10 text-4xl font-bold">Projects</h1>
-	<div class="flex h-1/2 w-full items-center justify-center px-10">
-		{#each projects as project, index}
-			<div
-				class={`mySlides fade ${index + 1 === slideIndex ? 'block' : 'hidden'} flex sm:flex-row`}
-			>
-				<div class="w-full rounded-lg bg-lightGray p-6 sm:w-1/2">
-					<h1
-						class="bg-gradient-to-r from-blue-500 to-green-500 bg-clip-text text-2xl font-bold text-transparent"
-					>
-						{project.projectName}
-					</h1>
-					<div class="text-md mt-2">
-						{#if project.opensource}
-							<a href={project.githubUrl} target="_blank" class="text-blue-500 hover:underline">
-								GitHub Link
-							</a>
-						{/if}
-						{#if !project.opensource}
-							<h1 class="text-blue-500 hover:underline">
-								Source Code can be shown on request currently private for academic purposes
-							</h1>
-						{/if}
-					</div>
-					{#each project.description as bulletpoint}
-						<p class="mt-3 text-white">{bulletpoint}</p>
-					{/each}
-				</div>
+<!-- Display filtered items -->
+<main class="mx-4 mt-10 flex-col">
+	<!-- Heading Section -->
+	<aside class="flex w-full justify-center items-center space-x-1">
+		<Wave x={700} y={100} z={20}/>
+		<div>
+			<section class="mb-4 text-center">
+				<h2 class="text-2xl font-semibold text-gray-700">My Projects</h2>
+			</section>
 
-				<div class="mx-5 hidden w-1/2 justify-center rounded-lg bg-lightGray sm:flex ">
-					<!-- <img src={project.img} alt="not found" /> -->
-					<h1>Images and Videos are on the way</h1>
-				</div>
-			</div>
-		{/each}
-	</div>
-
-	<!-- Next & previous buttons -->
-	<div class="flex w-full justify-evenly py-5">
-		<button
-			class=" rounded-r bg-lightGray from-blue-500 to-green-500 px-4 py-2 text-lg font-bold text-white hover:bg-gradient-to-r"
-			on:click={() => plusSlides(-1)}
-		>
-			←
-		</button>
-		<button
-			class="rounded-l bg-lightGray from-blue-500 to-green-500 px-4 py-2 text-lg font-bold text-white hover:bg-gradient-to-r"
-			on:click={() => plusSlides(1)}
-		>
-			→
-		</button>
-	</div>
+			<!-- Filter Section -->
+			<section class="mb-6 flex flex-wrap justify-center gap-3">
+				<h1>Filter By -></h1>
+				<button
+					on:click={filterHardware}
+					class="rounded-full border border-green-500 px-4 py-1 text-sm text-green-500 transition hover:bg-green-500 hover:text-white"
+				>
+					Hardware
+				</button>
+				<button
+					on:click={filterSoftware}
+					class="rounded-full border border-green-500 px-4 py-1 text-sm text-green-500 transition hover:bg-green-500 hover:text-white"
+				>
+					Software
+				</button>
+				<button
+					on:click={filterAll}
+					class="rounded-full border border-gray-300 px-4 py-1 text-sm text-gray-500 transition hover:bg-gray-200"
+				>
+					None
+				</button>
+			</section>
+		</div>
+		<Wave x={700} y={100} z={20}/>
+	</aside>
+	<!-- Grid Sections -->
+	<section>
+		<div class="grid grid-cols-3 gap-4">
+			{#each filteredItems as x}
+				<ProjectCard data={x} />
+			{/each}
+		</div>
+	</section>
 </main>
-
-<style>
-	/* Fading animation for the slides */
-	.fade {
-		animation: fade 1.5s;
-	}
-
-	@keyframes fade {
-		from {
-			opacity: 0.8;
-		}
-		to {
-			opacity: 1;
-		}
-	}
-</style>

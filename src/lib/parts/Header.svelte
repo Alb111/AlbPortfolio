@@ -1,22 +1,13 @@
 <script lang="ts">
-	export let scrollToSection: (section: HTMLElement) => void;
-	export let sections: {
-		home: HTMLElement;
-		experience: HTMLElement;
-		projects: HTMLElement;
-		contact: HTMLElement;
-	};
-
 	import SideNav from './SideNav.svelte';
 	let x: number = 0;
-	function underlineAndScroll(y: number, too: HTMLElement) {
+	function underline(y: number) {
 		x = y;
-		scrollToSection(too);
 	}
 </script>
 
 <div
-	class="fixed top-2 z-10 flex w-full items-baseline justify-between rounded-xl bg-darkGray py-2 outline sm:py-5"
+	class="b-2 fixed top-0 flex w-full items-baseline justify-between  border-b border-black bg-white sm:py-5"
 >
 	<h1 class="ml-10 text-3xl">
 		Albert<span
@@ -27,34 +18,28 @@
 
 	<!-- Main Navigation (visible on larger screens) -->
 	<nav class="mr-10 hidden sm:flex">
-		<button
-			class={x == 0 ? 'underlined' : 'normal'}
-			on:click={() => underlineAndScroll(0, sections.home)}>Home</button
-		>
-		<button
-			class={x == 1 ? 'underlined' : 'normal'}
-			on:click={() => underlineAndScroll(1, sections.experience)}>Experience</button
-		>
-		<button
-			class={x == 2 ? 'underlined' : 'normal'}
-			on:click={() => underlineAndScroll(2, sections.projects)}>Projects</button
-		>
-		<button
-			class={x == 3 ? 'underlined' : 'normal'}
-			on:click={() => underlineAndScroll(3, sections.contact)}>Contact</button
-		>
+		<a href="/">
+			<button class={x == 0 ? 'underlined' : 'normal'} on:click={() => underline(0)}>Home</button>
+		</a>
+		<a href="/exp">
+			<button class={x == 1 ? 'underlined' : 'normal'} on:click={() => underline(1)}
+				>Experience</button
+			>
+		</a>
+		<a href="/projects">
+			<button class={x == 2 ? 'underlined' : 'normal'} on:click={() => underline(2)}
+				>Projects</button
+			>
+		</a>
+		<a href="https://docs.google.com/forms/d/e/1FAIpQLScA2h7K9RGP_Tkt1NJAIRqkWUC2LlEpRWL5GUnfr-0a6fb48g/viewform?usp=dialog">
+			<button class={x == 3 ? 'underlined' : 'normal'} on:click={() => underline(3)}>Contact</button
+			>
+		</a>
 	</nav>
 
 	<!-- Side Navigation (visible on small screens) -->
 	<div class="sm:hidden">
-		<SideNav
-			sections={{
-				home: sections.home,
-				experience: sections.experience,
-				projects: sections.projects,
-				contact: sections.contact 
-			}}
-		/>
+		<SideNav />
 	</div>
 </div>
 

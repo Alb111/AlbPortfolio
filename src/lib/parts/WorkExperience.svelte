@@ -1,4 +1,5 @@
 <script>
+	import Wave from './Wave.svelte';
 	let currentHover = 'experience';
 	/**
 	 * @param {string} x
@@ -61,106 +62,47 @@
 	];
 </script>
 
-<main class="flex h-3/4 w-full flex-col items-center sm:flex-row">
-	<!-- SelectorPart -->
-	<div class="flex h-full w-full flex-col items-center justify-center space-y-4 px-10 sm:w-1/2">
-		<h1 class="text-4xl font-bold">Why me?</h1>
-		<h2 class="">Use the selector to navigate my credentials and experience.</h2>
-		<button
-			class={currentHover == 'experience' ? 'underlined' : 'normal'}
-			on:click={() => changeHover('experience')}>Experience</button
-		>
-		<button
-			class={currentHover == 'education' ? 'underlined' : 'normal'}
-			on:click={() => changeHover('education')}>Education</button
-		>
-		<button
-			class={currentHover == 'skills' ? 'underlined' : 'normal'}
-			on:click={() => changeHover('skills')}>Skills</button
-		>
-	</div>
-
-	<!-- Conditional Display -->
-	{#if currentHover === 'experience'}
-		<!-- WorkExp Part -->
-		<div class="mx-auto w-full px-10 py-12 sm:w-1/2">
-			<div class="space-y-8">
-				{#each experiences as experience}
-					<div class="rounded-lg bg-lightGray p-6">
-						<h3
-							class="bg-gradient-to-r from-blue-500 to-green-500 bg-clip-text text-xl font-bold text-transparent"
-						>
-							{experience.title}
-						</h3>
-						<p class="text-md">{experience.company}</p>
-						<p class="text-md">{experience.date}</p>
-						<p class="mt-3">{experience.description}</p>
-					</div>
-				{/each}
-			</div>
-		</div>
-	{/if}
-
-	{#if currentHover === 'education'}
-		<!-- EducationPart -->
-		<div class="mx-auto w-full px-10 py-12 sm:w-1/2">
-			<div class="space-y-8">
-				{#each education as edu}
-					<div class="rounded-lg bg-lightGray p-6">
-						<h3
-							class="bg-gradient-to-r from-blue-500 to-green-500 bg-clip-text text-xl font-bold text-transparent"
-						>
-							{edu.degree}
-						</h3>
-						<p class="text-md">{edu.school}</p>
-						<p class="text-md">{edu.date}</p>
-						<p class="mt-3">{edu.description}</p>
-					</div>
-				{/each}
-			</div>
-		</div>
-	{/if}
-
-	{#if currentHover === 'skills'}
-		<!-- Skills Placeholder -->
-		<div class="mx-auto w-full px-10 py-12 sm:w-1/2">
-			<div class="grid grid-cols-1 gap-6 md:grid-cols-2">
-				{#each skills as { category, items }}
-					<div class="rounded-lg bg-lightGray p-4 shadow-lg">
+<div class="min-h-screen flex-col items-center justify-center bg-gray-50 pt-10">
+	<div class="w-full px-10 py-8">
+		<main class="grid grid-cols-1 gap-5 sm:grid-cols-3">
+			<!-- education section -->
+			<section class="col-span-1">
+				<header class="pb-5 pl-8 font-mono text-green-500">
+					<h2 class="text-2xl font-bold">Education</h2>
+				</header>
+				<div class="h-full border-l-2 border-green-500 pl-8 pr-8">
+					{#each education as edu}
 						<div
-							class="mb-2 bg-gradient-to-r from-blue-500 to-green-500 bg-clip-text text-xl font-semibold text-transparent"
+							class="duration-400 mb-6 cursor-pointer border border-gray-200 bg-white p-5 transition-all hover:border-transparent hover:shadow-lg"
 						>
-							{category}
+							<h4 class="text-green-500">{edu.date}</h4>
+							<h3 class="py-2 text-xl text-gray-700">{edu.degree}</h3>
+							<p class="text-gray-500">{edu.school}</p>
+							<p class="text-gray-500">{edu.description}</p>
 						</div>
-						<ul class="list-inside list-disc space-y-1 pl-5">
-							{#each items as item}
-								<li class="text-white">{item}</li>
-							{/each}
-						</ul>
-					</div>
-				{/each}
-			</div>
-		</div>
-	{/if}
-</main>
+					{/each}
+				</div>
+			</section>
 
-<style>
-	.normal {
-		@apply w-full rounded-lg bg-lightGray py-3 text-2xl;
-	}
-
-	.underlined {
-		@apply w-full rounded-lg bg-gradient-to-r from-blue-500 to-green-500 py-3 text-2xl;
-		transition:
-			background-color 0.3s ease,
-			transform 0.2s ease;
-	}
-
-	button {
-		transition: transform 0.2s ease;
-	}
-
-	button:hover {
-		transform: scale(1.05);
-	}
-</style>
+			<!-- experience section (wider) -->
+			<section class="col-span-1 sm:col-span-2">
+				<header class="pb-5 pl-8 font-mono text-green-500">
+					<h2 class="text-2xl font-bold">Experience</h2>
+				</header>
+				<div class="grid h-full grid-cols-2 gap-5 border-l-2 border-green-500 pl-8 pr-8">
+					{#each experiences as exp}
+						<div
+							class="duration-400 mb-6 flex cursor-pointer flex-col items-center justify-center border border-gray-200 bg-white p-5 transition-all hover:border-transparent hover:shadow-lg"
+						>
+							<h4 class="text-green-500">{exp.date}</h4>
+							<h3 class="py-2 text-xl text-gray-700">{exp.title}</h3>
+							<p class="text-gray-500">{exp.company}</p>
+							<p class="text-gray-500">{exp.description}</p>
+						</div>
+					{/each}
+				</div>
+			</section>
+		</main>
+	</div>
+	<Wave x={2000}/>
+</div>
