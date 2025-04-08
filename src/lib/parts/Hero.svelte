@@ -4,7 +4,7 @@
 	import { Linkedin, GithubIcon } from 'lucide-svelte';
 </script>
 
-<section class="flex w-full flex-col md:flex-row">
+<section class="flex h-screen w-screen flex-col md:flex-row">
 	<div class="flex w-full flex-col items-center justify-center p-10 md:w-1/2">
 		<h1 class="animate-fade-in text-4xl font-bold md:text-7xl">Hello, Im</h1>
 		<Typewriter cursor={false} interval={50} mode="cascade">
@@ -43,10 +43,10 @@
 				</button>
 			</a>
 		</div>
-		<Wave/>
+		<Wave />
 	</div>
 	<div class="animate-slide-up flex h-screen w-full justify-center md:w-1/2">
-		<img class="rounded-xl" src="/images/image.png" alt="akdjfalkdsjf;lk" />
+		<img src="/images/image.png" alt="LOGO" class="responsive-image" />
 	</div>
 </section>
 
@@ -88,7 +88,16 @@
 			transform: scale(1);
 		}
 	}
-	.animate-scale-up {
-		animation: scaleUp 0.3s ease-out;
+	.responsive-image {
+		height: 100%;
+		max-width: 1000px; /* Adjust this to your desired max size */
+		width: auto;
+	}
+
+	/* On smaller screens, scale down the image */
+	@media (max-width: 480px) {
+		.responsive-image {
+			height: 40%; /* Adjust this as needed */
+		}
 	}
 </style>

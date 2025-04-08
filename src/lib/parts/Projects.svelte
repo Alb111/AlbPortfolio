@@ -109,8 +109,8 @@
 <!-- Display filtered items -->
 <main class="mx-4 mt-10 flex-col">
 	<!-- Heading Section -->
-	<aside class="flex w-full justify-center items-center space-x-1">
-		<Wave x={700} y={100} z={20}/>
+	<aside class="flex w-full items-center justify-center space-x-1">
+		<Wave x={700} y={100} z={20} />
 		<div>
 			<section class="mb-4 text-center">
 				<h2 class="text-2xl font-semibold text-gray-700">My Projects</h2>
@@ -139,11 +139,12 @@
 				</button>
 			</section>
 		</div>
-		<Wave x={700} y={100} z={20}/>
+
+		<Wave x={700} y={100} z={20} />
 	</aside>
 	<!-- Grid Sections -->
 	<section>
-		<div class="grid grid-cols-3 gap-4">
+		<div class="grid grid-cols-1 gap-4 md:grid-cols-3">
 			{#each filteredItems as x}
 				<ProjectCard data={x} />
 			{/each}

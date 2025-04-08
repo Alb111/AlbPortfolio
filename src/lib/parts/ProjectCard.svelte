@@ -15,7 +15,7 @@
 		<h4 class="text-sm font-semibold text-gray-500">Skills:</h4>
 		<div class="flex justify-center gap-1 pt-1">
 			{#each data.skills as skill}
-				<p class="rounded-xl border border-green-500 px-2 py-0.5 text-xs text-green-500">{skill}</p>
+				<p class="flex items-center rounded-xl border border-green-500 px-2 py-0.5 text-xs text-green-500">{skill}</p>
 			{/each}
 		</div>
 	</div>

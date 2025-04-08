@@ -62,7 +62,7 @@
 	];
 </script>
 
-<div class="min-h-screen flex-col items-center justify-center bg-gray-50 pt-10">
+<div class="h-screen flex-col items-center justify-center pt-10">
 	<div class="w-full px-10 py-8">
 		<main class="grid grid-cols-1 gap-5 sm:grid-cols-3">
 			<!-- education section -->
@@ -89,7 +89,7 @@
 				<header class="pb-5 pl-8 font-mono text-green-500">
 					<h2 class="text-2xl font-bold">Experience</h2>
 				</header>
-				<div class="grid h-full grid-cols-2 gap-5 border-l-2 border-green-500 pl-8 pr-8">
+<div class="grid h-full grid-cols-1 md:grid-cols-2 gap-5 border-l-2 border-green-500 pl-8 pr-8">
 					{#each experiences as exp}
 						<div
 							class="duration-400 mb-6 flex cursor-pointer flex-col items-center justify-center border border-gray-200 bg-white p-5 transition-all hover:border-transparent hover:shadow-lg"
@@ -104,5 +104,5 @@
 			</section>
 		</main>
 	</div>
-	<Wave x={2000}/>
+	<Wave x={2000} />
 </div>

@@ -56,8 +56,11 @@
 	});
 </script>
 
+
+<div class="hidden sm:block">
 <!-- svelte-ignore element_invalid_self_closing_tag -->
 <canvas bind:this={canvas} {width} {height} class="transparent-canvas" />
+</div>
 
 <style>
 	.transparent-canvas {
