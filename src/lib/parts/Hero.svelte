@@ -15,7 +15,7 @@
 			</h1>
 		</Typewriter>
 		<p class="animate-fade-in py-10 text-center text-sm md:text-xl">
-			I am hardware engineer, with interests in ASIC design, AI, FPGAs, and Digital System Design. I
+			I am hardware/software engineer, with interests in Web Dev, ASIC design, AI, FPGAs, and Digital System Design. I
 			also enjoy learning about low-level software development and computer architecture.
 		</p>
 		<div class="flex space-x-4">
